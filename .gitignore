@@ -1,0 +1,11 @@
+# Ignore the specific compiled binary in the Basics folder
+Basics/Calculator Basics
+
+# Ignore any compiled Linux binaries (files with no extension) across subfolders
+*
+!*/
+!*.c
+!*.h
+!*.md
+!*.gitignore
+
