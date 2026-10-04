@@ -1,11 +1,13 @@
-# Ignore the specific compiled binary in the Basics folder
+# Compiled Object files
+*.o
+*.obj
+
+# Executables (Windows and standard extensions)
+*.exe
+*.out
+*.app
+
+# Explicitly ignore specific macOS/Linux binaries
+number_analyzer
+calculator
 Basics/Calculator Basics
-
-# Ignore any compiled Linux binaries (files with no extension) across subfolders
-*
-!*/
-!*.c
-!*.h
-!*.md
-!*.gitignore
-
