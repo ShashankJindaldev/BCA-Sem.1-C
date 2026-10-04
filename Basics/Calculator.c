@@ -37,7 +37,7 @@ int main () {
                 printf("Division by 0 is not allowed\n");
             }
             break;
-            
+
         default:
             printf("Error invalid operator inputted\n");
     }
