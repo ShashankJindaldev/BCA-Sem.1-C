@@ -18,7 +18,7 @@ void print_board(char board[3][3]){
     }
 }
 
-int is_valid_choice(char board[3][3], int choice){
+int is_valid_move(char board[3][3], int choice){
     if(choice < 1 || choice > 9){
         return 0;
     }
@@ -30,10 +30,10 @@ int is_valid_choice(char board[3][3], int choice){
     return 1;
 }
 
-void update_board(char board[3][3], int choice, char symbol){
+void update_board(char board[3][3], int choice, char current_player){
     int row = (choice - 1)/3;
     int col = (choice - 1)%3;
-    board[row][col] = symbol;
+    board[row][col] = current_player;
 }
 
 int check_win(char board[3][3]){
