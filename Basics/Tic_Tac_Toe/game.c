@@ -17,3 +17,21 @@ void print_board(char board[3][3]){
         printf("---|---|---\n");
     }
 }
+
+int is_valid_choice(char board[3][3], int choice){
+    if(choice < 1 || choice > 9){
+        return 0;
+    }
+    int row = (choice - 1)/3;
+    int col = (choice - 1)%3;
+    if(board[row][col] == 'X' || board[row][col] == 'O' ){
+        return 0;
+    }
+    return 1;
+}
+
+void update_board(char board[3][3], int choice, char symbol){
+    int row = (choice - 1)/3;
+    int col = (choice - 1)%3;
+    board[row][col] = symbol;
+}
