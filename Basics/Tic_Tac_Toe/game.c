@@ -57,3 +57,18 @@ int check_win(char board[3][3]){
         }
     return 0;
 }
+
+int check_draw(char board[3][3]){
+    if(check_win(board)){
+        return 0;
+    }
+
+    for(int i = 0; i <= 2; i++){
+        for(int j = 0; j <= 2; j++){
+            if(board[i][j] >= '1' && board[i][j] <= '9'){
+                return 0;
+            }
+        }
+    }
+    return 1;
+}
