@@ -10,7 +10,8 @@ A structured record of my progression through Semester 1 of the BCA program, mov
 - [Projects](#projects)
   - [Project 1: Arithmetic Calculator](#project-1-arithmetic-calculator)
   - [Project 2: Number Property Analyzer](#project-2-number-property-analyzer)
-  - [Project 3: Set Operations Theory Engine](#project-3-set-operations-theory-engine)
+  - [Project 3: Tic-Tac-Toe](#project-3-tic-tac-toe)
+  - [Project 4: Set Operations Theory Engine](#project-4-set-operations-theory-engine)
 - [Version Control Protocol](#version-control-protocol)
 
 ---
@@ -20,15 +21,20 @@ A structured record of my progression through Semester 1 of the BCA program, mov
 ```text
 BCA-Sem.1-C/
 ├── Basics/
-│   ├── Calculator.c
 │   ├── Number_Properties/
 │   │   ├── main.c
 │   │   ├── number_utils.c
 │   │   └── number_utils.h
-│   └── Set_Operations_Theory_Engine/
-│       ├── main.c
-│       ├── set_ops.c
-│       └── set_ops.h
+│   ├── Set_Operations_Theory_Engine/
+│   │   ├── main.c
+│   │   ├── set_ops.c
+│   │   └── set_ops.h
+│   ├── Tic_Tac_Toe/
+│   │   ├── game.c
+│   │   ├── game.h
+│   │   └── main.c
+│   ├── .gitignore
+│   └── Calculator.c
 ├── .gitignore
 └── README.md
 ```
@@ -126,7 +132,61 @@ number_analyzer.exe      # Windows
 
 ---
 
-### Project 3: Set Operations Theory Engine
+### Project 3: Tic-Tac-Toe
+
+| Attribute | Details |
+|-----------|---------|
+| **Location** | `Basics/Tic_Tac_Toe/` |
+| **Architecture** | Modular, multi-file |
+| **Concepts** | 2D arrays, game loop, input validation, include guards |
+
+**Description**
+
+A two-player, terminal-based Tic-Tac-Toe game played on a 3×3 grid. Players `X` and `O` alternate turns by entering a cell number from 1 to 9. Game logic is isolated from the game loop and user interaction:
+
+| File | Responsibility |
+|------|----------------|
+| `main.c` | Game loop, turn management, and user input handling |
+| `game.c` | Implementation of board and rule logic |
+| `game.h` | Function declarations (public interface), protected by include guards (`GAME_H`) |
+
+**Public Interface (`game.h`)**
+
+| Function | Purpose |
+|----------|---------|
+| `initialize_board` | Fills the 3×3 board with cell numbers `1`–`9` |
+| `print_board` | Renders the current board state to the terminal |
+| `is_valid_move` | Rejects out-of-range choices and already-occupied cells |
+| `update_board` | Places the current player's mark on the chosen cell |
+| `check_win` | Detects a win across rows, columns, and both diagonals |
+| `check_draw` | Detects a draw when no cells remain and no player has won |
+
+**Implementation Notes**
+
+- **Cell mapping:** A choice from 1–9 maps to board coordinates using integer division and modulo: `row = (choice - 1) / 3`, `col = (choice - 1) % 3`.
+- **Input validation:** The return value of `scanf` is checked, and the input buffer is flushed on invalid input so non-numeric entries do not cause an infinite loop.
+- **Move validation:** Out-of-range and occupied-cell moves are rejected, and the same player is prompted again.
+- **Turn handling:** The active player toggles between `X` and `O` only after a valid move that does not end the game.
+
+**Compilation**
+
+Execute from inside the `Tic_Tac_Toe` directory:
+
+```bash
+cd Basics/Tic_Tac_Toe
+gcc main.c game.c -o tic_tac_toe
+```
+
+**Execution**
+
+```bash
+./tic_tac_toe        # macOS / Linux
+tic_tac_toe.exe      # Windows
+```
+
+---
+
+### Project 4: Set Operations Theory Engine
 
 | Attribute | Details |
 |-----------|---------|
