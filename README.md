@@ -10,6 +10,7 @@ A structured record of my progression through Semester 1 of the BCA program, mov
 - [Projects](#projects)
   - [Project 1: Arithmetic Calculator](#project-1-arithmetic-calculator)
   - [Project 2: Number Property Analyzer](#project-2-number-property-analyzer)
+  - [Project 3: Set Operations Theory Engine](#project-3-set-operations-theory-engine)
 - [Version Control Protocol](#version-control-protocol)
 
 ---
@@ -20,10 +21,14 @@ A structured record of my progression through Semester 1 of the BCA program, mov
 BCA-Sem.1-C/
 ├── Basics/
 │   ├── Calculator.c
-│   └── Number_Properties/
+│   ├── Number_Properties/
+│   │   ├── main.c
+│   │   ├── number_utils.c
+│   │   └── number_utils.h
+│   └── Set_Operations_Theory_Engine/
 │       ├── main.c
-│       ├── number_utils.c
-│       └── number_utils.h
+│       ├── set_ops.c
+│       └── set_ops.h
 ├── .gitignore
 └── README.md
 ```
@@ -117,6 +122,53 @@ gcc main.c number_utils.c -o number_analyzer
 ```bash
 ./number_analyzer        # macOS / Linux
 number_analyzer.exe      # Windows
+```
+
+---
+
+### Project 3: Set Operations Theory Engine
+
+| Attribute | Details |
+|-----------|---------|
+| **Location** | `Basics/Set_Operations_Theory_Engine/` |
+| **Architecture** | Modular, multi-file |
+| **Concepts** | 1D array manipulation, C99 Variable Length Arrays (VLAs), discrete mathematics algorithms |
+
+**Description**
+
+A modular application translating discrete mathematics set operations into C code. It evaluates the Union, Intersection, and Difference of two user-defined sets:
+
+| File | Responsibility |
+|------|----------------|
+| `main.c` | Standard input/output handling and VLA memory allocation |
+| `set_ops.c` | Implementation of mathematical set logic (duplicate elimination, relational comparisons) |
+| `set_ops.h` | Function declarations (public interface) |
+
+The engine evaluates the following set operations:
+
+- **Union**
+- **Intersection**
+- **Difference**
+
+**Algorithmic Constraints**
+
+- **Strict element uniqueness** is enforced during array population.
+- **No external mathematical library dependencies.** All set logic operates strictly on standard C constructs.
+
+**Compilation**
+
+Execute from inside the `Set_Operations_Theory_Engine` directory:
+
+```bash
+cd Basics/Set_Operations_Theory_Engine
+gcc main.c set_ops.c -o set_engine
+```
+
+**Execution**
+
+```bash
+./set_engine        # macOS / Linux
+set_engine.exe      # Windows
 ```
 
 ---
